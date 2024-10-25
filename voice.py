@@ -7,7 +7,9 @@ while True:
     try:
         with sr.Microphone() as mic:
             reconocedor.adjust_for_ambient_noise(mic)
-            print("Ahora puedes decir unas palabras por un minuto: ")
+            print(
+                "Ahora puedes decir unas palabras por un minuto: (Si queres salir, solo di 'salir')"
+            )
             audio = reconocedor.listen(mic, timeout=120, phrase_time_limit=120)
             texto = reconocedor.recognize_google(audio, language="es-ES")
             texto = texto.lower()
